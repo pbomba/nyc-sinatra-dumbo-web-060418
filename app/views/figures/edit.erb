@@ -1,0 +1,24 @@
+
+<h1>Edit a FIUGURE</h1>
+
+
+
+Figure Name: <input type="text" value="<%=@figure.name%>"name="name">
+
+	<input type="submit" value="Update">
+</form>
+
+<form method="post" action="/figures/<%= @figure.id %>">
+  <input type="hidden" name="_method" value="PATCH">
+
+	Name: <input type="text" name="name"><br>
+  <h2>Titles</h2><br>
+  <input type="checkbox" name="mayor" value="mayor"><label for="mayor">The Mayor</label>
+  <input type="checkbox" name="don" value="don"><label for="don">The Don</label>
+  <input type="checkbox" name="pres" value="pres"><label for="pres">Mr. President</label><br>
+  <h2>Landmarks</h2>
+  <% @landmarks.each do |lm| %>
+<input type="checkbox" name="<%= lm.name %>" value="name"><label><%= lm.name %></label><br>
+  <% end %>
+	<input type="submit" value="submit">
+</form>

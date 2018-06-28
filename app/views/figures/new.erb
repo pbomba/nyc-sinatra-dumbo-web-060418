@@ -8,9 +8,13 @@
 <form method="POST" action="/figures">
 	Name: <input type="text" name="name"><br>
   <h2>Titles</h2><br>
-  <input type="checkbox" name="mayor" value="mayor"><label for="mayor">The Mayor</label>
-  <input type="checkbox" name="don" value="don"><label for="don">The Don</label>
-  <input type="checkbox" name="pres" value="pres"><label for="pres">Mr. President</label><br>
+ 
+
+  <% @titles.each do |t| %>
+      <input type="checkbox" name="<%= t.name %>"value="name"><label><%= t.name %></label><br>
+      <% end%>
+
+ 
   <h2>Landmarks</h2>
   <% @landmarks.each do |lm| %>
 <input type="checkbox" name="<%= lm.name %>" value="name"><label><%= lm.name %></label><br>
