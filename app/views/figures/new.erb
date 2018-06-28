@@ -4,23 +4,26 @@
 	<title>new landmark!</title>
 </head>
 <body>
-<h1>Input new landmark</h1>
+<h1>Input new Figure</h1>
 <form method="POST" action="/figures">
 	Name: <input type="text" name="name"><br>
   <h2>Titles</h2><br>
-
+ <% title_array = [] %>
   <% @titles.each do |t| %>
-      <input type="checkbox" value="<%=t.name%>" name="titles[name]"><label><%= t.name %></label><br>
+      <input type="checkbox" value="<%=t.id%>" name="[titles][]"><label><%= t.name %></label><br>
+
       <% end%>
 
 			<h2>Create new title:</h2>
-			<input type="text" name="new_title">
+			<input type="text" name="[titles][]">
 
   <h2>Landmarks</h2>
   <% @landmarks.each do |lm| %>
-<input type="checkbox" value="<%= lm.name %>" name="landmarks[name]}"><label><%= lm.name %></label><br>
+<input type="checkbox" value="<%= lm.id %>" name="[landmarks][]"><label><%= lm.name %></label><br>
   <% end %>
 
+<h2>Create new landmark:</h2>
+      <input type="text" name="[landmarks][]">
 	<!-- Year Completed: <input type="text" name="year_completed"> -->
 	<input type="submit" value="submit">
 </form>
