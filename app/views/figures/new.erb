@@ -8,16 +8,17 @@
 <form method="POST" action="/figures">
 	Name: <input type="text" name="name"><br>
   <h2>Titles</h2><br>
- 
 
   <% @titles.each do |t| %>
-      <input type="checkbox" name="<%= t.name %>"value="name"><label><%= t.name %></label><br>
+      <input type="checkbox" value="<%=t.name%>" name="titles[name]"><label><%= t.name %></label><br>
       <% end%>
 
- 
+			<h2>Create new title:</h2>
+			<input type="text" name="new_title">
+
   <h2>Landmarks</h2>
   <% @landmarks.each do |lm| %>
-<input type="checkbox" name="<%= lm.name %>" value="name"><label><%= lm.name %></label><br>
+<input type="checkbox" value="<%= lm.name %>" name="landmarks[name]}"><label><%= lm.name %></label><br>
   <% end %>
 
 	<!-- Year Completed: <input type="text" name="year_completed"> -->
